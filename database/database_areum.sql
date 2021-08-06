@@ -1,0 +1,1 @@
+CREATE DATABASE AREUM character SET utf8 collate uft8_general_ci;
