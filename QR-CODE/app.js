@@ -5,17 +5,14 @@ const qrCode = require("qrcode");
 const userModel = require("./models/user");
 
 const URL = "mongodb://localhost:27017/qrcode";
-mongoose.connect(
-  URL,
-  {
+mongoose
+  .connect(URL, {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
-  },
-  () => {
-    console.log("Connected to DB");
-  }
-);
+  })
+  .then(() => console.log("Connected to mongodb"))
+  .catch((error) => console.error(error));
 
 const app = express();
 app.set("view engine", "ejs");
@@ -67,4 +64,4 @@ app.get("/identify", (res, req) => {});
 
 app.post("/identify", (res, req) => {});
 
-app.listen(3001);
+app.listen(3000);
